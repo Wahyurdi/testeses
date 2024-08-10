@@ -1,0 +1,388 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overflow-y: auto; /* Ensure the body is scrollable */
+  background: linear-gradient(0.25turn, rgb(16, 67, 236), rgb(255, 255, 0));
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: black;
+  color: white;
+  position: relative;
+}
+
+.navbar img {
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  position: relative; /* Ensure the pseudo-element is positioned relative to its parent */
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ddd;
+}
+
+.nav-links li a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.social-icons {
+  display: flex;
+  gap: 9px;
+  justify-content: center; /* Center icons horizontally */
+  padding: 20px;
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+}
+
+.social-icons svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+.social-icons a:hover svg {
+  fill: #e412f3; /* Ubah warna saat hover sesuai dengan tema Anda */
+  transition: fill 0.3s ease;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 150px;
+  height: 100%;
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  position: relative; /* Ensure the pseudo-element is positioned relative to its parent */
+}
+
+.sidebar a:hover {
+  color: #ddd;
+}
+
+.sidebar a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.sidebar a:hover::after {
+  width: 100%;
+}
+
+.sidebar-social-icons {
+  display: flex;
+  gap: 9px;
+  justify-content: center; /* Center icons horizontally */
+  padding: 20px;
+}
+
+.sidebar-social-icons a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar-social-icons svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.sidebar-social-icons a:hover svg {
+  fill: #e412f3; /* Ubah warna saat hover sesuai dengan tema Anda */
+  transition: fill 0.3s ease;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+.box div {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 6px solid rgba(255, 255, 255, 0.8);
+}
+
+.box div:nth-child(1) {
+  top: 12%;
+  left: 42%;
+  animation: animate 10s linear infinite;
+}
+.box div:nth-child(2) {
+  top: 70%;
+  left: 50%;
+  animation: animate 7s linear infinite;
+}
+.box div:nth-child(3) {
+  top: 17%;
+  left: 6%;
+  animation: animate 9s linear infinite;
+}
+.box div:nth-child(4) {
+  top: 20%;
+  left: 60%;
+  animation: animate 10s linear infinite;
+}
+.box div:nth-child(5) {
+  top: 67%;
+  left: 10%;
+  animation: animate 6s linear infinite;
+}
+.box div:nth-child(6) {
+  top: 80%;
+  left: 70%;
+  animation: animate 12s linear infinite;
+}
+.box div:nth-child(7) {
+  top: 60%;
+  left: 80%;
+  animation: animate 15s linear infinite;
+}
+.box div:nth-child(8) {
+  top: 32%;
+  left: 25%;
+  animation: animate 16s linear infinite;
+}
+.box div:nth-child(9) {
+  top: 90%;
+  left: 25%;
+  animation: animate 9s linear infinite;
+}
+.box div:nth-child(10) {
+  top: 20%;
+  left: 80%;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3) translateY(-90px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .social-icons {
+    display: none; /* Sembunyikan ikon sosial media di navbar */
+  }
+}
+
+/* CSS untuk tombol scroll ke atas */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 4px #000000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  text-align: center;
+  line-height: 50px; /* Center the arrow vertically */
+}
+
+#scrollToTopBtn:hover {
+  background-color: transparent;
+}
+
+/* CSS untuk galeri foto */
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0px; /* Adjust the margin to place it below the navbar */
+}
+
+.gallery {
+  display: flex;
+  width: 100%;
+  overflow: hidden; /* Hide overflowing images */
+  position: relative;
+  justify-content: center; /* Center the image */
+}
+
+.gallery-inner {
+  display: flex;
+  width: 100%;
+  transition: transform 0.7s ease-in-out; /* Memperpanjang durasi transisi untuk efek lebih halus */
+}
+
+.gallery img {
+  width: auto; /* Adjust image width to fit the viewport and include the gap */
+  max-width: 100%;
+  height: auto;
+  display: none; /* Hide all images by default */
+  border: 1px solid rgb(0, 0, 0); /* Added border */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Added box-shadow */
+}
+
+/* CSS untuk tombol navigasi galeri */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button.left {
+  left: 10px;
+}
+
+.nav-button.right {
+  right: 10px;
+}
+
+/* CSS untuk responsivitas pada perangkat mobile dan tablet */
+@media (max-width: 768px) {
+  #container {
+    margin-top: 100px; /* Menyesuaikan margin untuk pemosisian yang lebih baik */
+  }
+}
+
+@media (max-width: 480px) {
+  #scrollToTopBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #container {
+    width: 100%;
+    margin: 50% auto;
+    min-height: 800px;
+  }
+}
